@@ -1,4 +1,9 @@
 
+/*
+1.- Notacion asintotica: -BigO -BigOmega -Theta, constantes y n_0
+*/
+
+
 #include <iostream>
 
 using namespace std;

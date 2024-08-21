@@ -1,4 +1,8 @@
 
+/*Vimos una introduccion a notacion  asintotica:
+    - BigO -BigOmega -Theta 
+*/
+
 #include <iostream>
 
 using namespace std;
