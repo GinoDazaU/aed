@@ -1,0 +1,3 @@
+
+S2c2:
+    - Explica los ejercicios del examen1, BigO
