@@ -13,6 +13,58 @@ class ForwardList {
 private:
     Node<T>* head = nullptr;
 
+     // Función para dividir la lista en dos mitades
+    void split(Node<T>* source, Node<T>** front, Node<T>** back) {
+        Node<T>* fast;
+        Node<T>* slow;
+        if (!source || !source->next) {
+            *front = source;
+            *back = nullptr;
+        } else {
+            slow = source;
+            fast = source->next;
+            while (fast) {
+                fast = fast->next;
+                if (fast) {
+                    slow = slow->next;
+                    fast = fast->next;
+                }
+            }
+            *front = source;
+            *back = slow->next;
+            slow->next = nullptr;
+        }
+    }
+
+    // Esto si lo hizo gpt
+    // Función para combinar dos listas ordenadas
+    Node<T>* merge(Node<T>* left, Node<T>* right) {
+        if (!left) return right;
+        if (!right) return left;
+
+        if (left->data < right->data) {
+            left->next = merge(left->next, right);
+            return left;
+        } else {
+            right->next = merge(left, right->next);
+            return right;
+        }
+    }
+
+    // Función principal para ordenar la lista usando Merge Sort
+    void mergeSort(Node<T>** headRef) {
+        Node<T>* head = *headRef;
+        Node<T>* left;
+        Node<T>* right;
+
+        if (!head || !head->next) return;
+
+        split(head, &left, &right);
+        mergeSort(&left);
+        mergeSort(&right);
+        *headRef = merge(left, right);
+    }
+
 public:
 
     ~ForwardList() {
@@ -153,4 +205,9 @@ public:
         forwardList.head = nullptr;
 
     }
+
+    void mergeSort(){
+        mergeSort(&head);
+    }
+
 };
