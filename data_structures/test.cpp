@@ -19,6 +19,7 @@ int main(){
     forwardList1.push_back(0);
 
     forwardList1.print();
+    cout << forwardList1[12] << endl;
 
     return 0;
 }

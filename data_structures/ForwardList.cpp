@@ -93,4 +93,24 @@ class ForwardList {
             return data;
         }
 
+        T operator[](int pos){
+            if (pos < 0) {
+                throw runtime_error("Negative index");
+            }
+            if (head == nullptr) {
+                throw runtime_error("List is empty");
+            }
+            Node<T>* temp = head;
+            for (int i = 0; i < pos; i++){
+                if(temp->next == nullptr){
+                    throw runtime_error("Out of range");
+                }
+                temp = temp->next;
+            } return temp->data;
+        }
+
+        bool empty(){
+            return head == nullptr;
+        }
+
 };
