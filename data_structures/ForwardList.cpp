@@ -14,6 +14,11 @@ private:
     Node<T>* head = nullptr;
 
 public:
+
+    ~ForwardList() {
+        clear();
+    }
+
     T front() {
         if (head == nullptr) {
             throw runtime_error("List is empty");
@@ -134,5 +139,18 @@ public:
             temp = next;
         }
         head = nullptr;
+    }
+
+    void reverse(){
+        ForwardList<T> forwardList;
+        Node<T>* temp = head;
+        while(temp != nullptr){
+            forwardList.push_front(temp->data);
+            temp = temp->next;
+        }
+        clear();
+        head = forwardList.head;
+        forwardList.head = nullptr;
+
     }
 };
