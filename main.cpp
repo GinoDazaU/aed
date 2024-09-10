@@ -8,6 +8,4 @@ int main(){
     cout << "sadsa";
     char a;
     cin >> a;
-    cout << a;
-
-}
+    cout << a; }
