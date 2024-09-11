@@ -1,0 +1,96 @@
+#include <iostream>
+
+using namespace std;
+
+class MyCircularDeque {
+private:
+    int* elements;
+    int front;
+    int rear;
+    int max_size;
+    int size;
+
+public:
+    MyCircularDeque(int k) {
+        max_size = k;
+        elements = new int[k];  // Dinámico para flexibilidad en tamaño
+        front = 0;
+        rear = 0;
+        size = 0;
+    }
+
+    ~MyCircularDeque() {
+        delete[] elements;
+    }
+    
+    bool insertFront(int value) {
+        if (isFull()) return false;
+        front = (front - 1 + max_size) % max_size;
+        elements[front] = value;
+        size++;
+        return true;
+    }
+
+    bool insertLast(int value) {
+        if (isFull()) return false;
+        elements[rear] = value;
+        rear = (rear + 1) % max_size;
+        size++;
+        return true;
+    }
+
+    bool deleteFront() {
+        if (isEmpty()) return false;
+        front = (front + 1) % max_size;
+        size--;
+        return true;
+    }
+
+    bool deleteLast() {
+        if (isEmpty()) return false;
+        rear = (rear - 1 + max_size) % max_size;
+        size--;
+        return true;
+    }
+
+    int getFront() {
+        if (isEmpty()) return -1;
+        return elements[front];
+    }
+
+    int getRear() {
+        if (isEmpty()) return -1;
+        return elements[(rear - 1 + max_size) % max_size];  // Ajusta rear antes de devolver el último elemento
+    }
+
+    bool isEmpty() {
+        return size == 0;
+    }
+
+    bool isFull() {
+        return size == max_size;
+    }
+};
+
+int main() {
+    MyCircularDeque deque(5);
+
+    deque.insertLast(10);
+    deque.insertLast(20);
+    deque.insertFront(5);
+    cout << "Front: " << deque.getFront() << endl;
+    cout << "Rear: " << deque.getRear() << endl;
+
+    deque.deleteFront();
+    cout << "Front after delete: " << deque.getFront() << endl;
+
+    deque.insertLast(30);
+    deque.insertLast(40);
+    deque.insertLast(50);
+    cout << "Is full: " << deque.isFull() << endl;
+
+    deque.deleteLast();
+    cout << "Rear after delete: " << deque.getRear() << endl;
+
+    return 0;
+}
