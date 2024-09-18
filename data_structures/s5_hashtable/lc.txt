@@ -1,0 +1,253 @@
+Ejercicio 1: Contains Duplicate
+Objetivo:
+
+Dado un array de enteros, determinar si algún valor se repite al menos una vez.
+
+Enfoque para resolverlo:
+
+Utilizar un conjunto (hash set):
+Iterar sobre el array y añadir cada elemento al conjunto.
+Si un elemento ya existe en el conjunto, significa que hay un duplicado y se devuelve true.
+Si se completa la iteración sin encontrar duplicados, se devuelve false.
+Ejercicio 2: Contains Duplicate II
+Objetivo:
+
+Dado un array de enteros y un entero k, determinar si existen dos índices distintos i y j tales que nums[i] == nums[j] y la diferencia absoluta entre i y j es como máximo k.
+
+Enfoque para resolverlo:
+
+Utilizar una tabla hash para almacenar el valor y su índice:
+Iterar sobre el array.
+Para cada elemento, verificar si ya existe en la tabla hash:
+Si existe y la diferencia de índices es menor o igual a k, devolver true.
+Actualizar o añadir el elemento y su índice en la tabla hash.
+Mantener solo los elementos dentro de la ventana de tamaño k:
+Alternativamente, se puede utilizar un conjunto deslizante de tamaño k para mantener los elementos recientes.
+Ejercicio 3: Valid Anagram
+Objetivo:
+
+Dadas dos cadenas s y t, determinar si t es un anagrama de s.
+
+Enfoque para resolverlo:
+
+Utilizar una tabla hash para contar caracteres:
+Contar la frecuencia de cada carácter en s.
+Restar la frecuencia de cada carácter presente en t.
+Verificar si todas las frecuencias resultantes son cero.
+Alternativamente, ordenar ambas cadenas y compararlas:
+Si las cadenas ordenadas son iguales, entonces son anagramas.
+Ejercicio 4: First Unique Character in a String
+Objetivo:
+
+Encontrar el primer carácter no repetido en una cadena y devolver su índice. Si no existe, devolver -1.
+
+Enfoque para resolverlo:
+
+Utilizar una tabla hash para contar frecuencias:
+Contar la frecuencia de cada carácter en la cadena.
+Iterar nuevamente sobre la cadena y retornar el índice del primer carácter con frecuencia uno.
+Optimización:
+Utilizar un array de tamaño fijo si los caracteres son limitados (por ejemplo, solo letras minúsculas).
+Ejercicio 5: Intersection of Two Arrays
+Objetivo:
+
+Dadas dos arrays, calcular su intersección (elementos comunes únicos).
+
+Enfoque para resolverlo:
+
+Utilizar conjuntos para eliminar duplicados:
+Convertir el primer array en un conjunto.
+Iterar sobre el segundo array y verificar si el elemento está en el conjunto.
+Añadir los elementos comunes a un conjunto de resultados.
+Devolver el conjunto de resultados convertido en array.
+Ejercicio 6: Intersection of Two Arrays II
+Objetivo:
+
+Dadas dos arrays, calcular su intersección, incluyendo duplicados (cada elemento aparece tantas veces como en ambas arrays).
+
+Enfoque para resolverlo:
+
+Utilizar una tabla hash para contar frecuencias:
+Contar las frecuencias de los elementos en el primer array.
+Iterar sobre el segundo array y, si el elemento está en la tabla con frecuencia positiva:
+Añadir el elemento al resultado.
+Decrementar la frecuencia en la tabla.
+Devolver el array de resultados.
+Ejercicio 7: Happy Number
+Objetivo:
+
+Determinar si un número es "feliz". Un número feliz es aquel que al reemplazarlo repetidamente por la suma de los cuadrados de sus dígitos, eventualmente se convierte en 1.
+
+Enfoque para resolverlo:
+
+Utilizar un conjunto para detectar ciclos:
+Inicializar un conjunto para almacenar los números ya vistos.
+Repetir el proceso de sumar los cuadrados de los dígitos.
+Si el resultado es 1, devolver true.
+Si el resultado ya está en el conjunto, hay un ciclo y se devuelve false.
+Continuar hasta que se llegue a una conclusión.
+Ejercicio 8: Word Pattern
+Objetivo:
+
+Dado un patrón pattern y una cadena s, determinar si s sigue el mismo patrón.
+
+Enfoque para resolverlo:
+
+Dividir la cadena s en palabras:
+Utilizar la función split para obtener las palabras.
+Utilizar dos tablas hash para mapear caracteres y palabras:
+Mapear cada carácter del patrón a una palabra.
+Mapear cada palabra a un carácter del patrón.
+Verificar que el mapeo sea consistente en ambas direcciones.
+Devolver true si el patrón se sigue correctamente, false en caso contrario.
+Ejercicio 9: Isomorphic Strings
+Objetivo:
+
+Determinar si dos cadenas s y t son isomórficas, es decir, cada carácter en s puede ser reemplazado para obtener t, manteniendo el orden de los caracteres.
+
+Enfoque para resolverlo:
+
+Utilizar dos tablas hash para mapear caracteres:
+Mapear caracteres de s a t y viceversa.
+Asegurarse de que no haya conflictos en el mapeo.
+Verificar que el mapeo sea uno a uno y consistente a lo largo de las cadenas.
+Ejercicio 10: Top K Frequent Elements
+Objetivo:
+
+Dado un array de enteros no vacío, devolver los k elementos más frecuentes.
+
+Enfoque para resolverlo:
+
+Contar la frecuencia de cada elemento utilizando una tabla hash:
+Crear un mapa que asocie cada número a su frecuencia.
+Utilizar una estructura para ordenar por frecuencia:
+Puede ser una cola de prioridad (heap) o un bucket sort.
+Ordenar los elementos según su frecuencia.
+Extraer los k elementos más frecuentes y devolverlos en un array.
+Ejercicio 11: Find the Difference
+Objetivo:
+
+Dadas dos cadenas s y t que consisten de letras minúsculas, donde t es s con un carácter adicional agregado en una posición aleatoria, encontrar el carácter adicional.
+
+Enfoque para resolverlo:
+
+Utilizar una tabla hash para contar caracteres:
+Contar la frecuencia de cada carácter en s.
+Restar la frecuencia de cada carácter en t.
+El carácter con frecuencia residual es el añadido.
+Alternativamente, utilizar el operador XOR:
+Aplicar XOR a todos los caracteres de ambas cadenas; el resultado será el carácter adicional.
+Ejercicio 12: Ransom Note
+Objetivo:
+
+Dadas dos cadenas ransomNote y magazine, determinar si es posible construir ransomNote a partir de las letras en magazine. Cada letra en magazine solo puede ser utilizada una vez.
+
+Enfoque para resolverlo:
+
+Utilizar una tabla hash para contar caracteres en magazine:
+Contar la frecuencia de cada letra disponible.
+Verificar si ransomNote puede ser construida:
+Para cada letra en ransomNote, verificar si hay suficiente frecuencia en magazine.
+Decrementar la frecuencia correspondiente al usar una letra.
+Devolver true si es posible, false en caso contrario.
+Ejercicio 13: Subarray Sum Equals K
+(Ya mencionado anteriormente, pero lo incluyo por completitud)
+
+Objetivo:
+
+Encontrar el número total de subarreglos continuos cuya suma es igual a un número k.
+
+Enfoque para resolverlo:
+
+Utilizar una tabla hash para almacenar sumas acumuladas:
+Llevar una suma acumulada mientras se itera.
+Si suma_acumulada - k existe en la tabla, incrementar el contador por la frecuencia de esa suma.
+Actualizar la tabla hash con la suma acumulada actual.
+Este método permite encontrar subarreglos en tiempo O(n).
+Ejercicio 14: 4Sum II
+Objetivo:
+
+Dadas cuatro listas de enteros A, B, C, D, calcular cuántas tuplas (i, j, k, l) hay de manera que A[i] + B[j] + C[k] + D[l] == 0.
+
+Enfoque para resolverlo:
+
+Utilizar una tabla hash para almacenar sumas de pares:
+Calcular todas las posibles sumas de A[i] + B[j] y almacenar la frecuencia en una tabla hash.
+Contar complementos en las otras dos listas:
+Para cada suma de C[k] + D[l], verificar si su complemento (negativo) existe en la tabla hash.
+Incrementar el contador por la frecuencia encontrada.
+Este enfoque reduce la complejidad a O(n²).
+Ejercicio 15: Longest Palindrome
+Objetivo:
+
+Dada una cadena que consiste en letras mayúsculas y minúsculas, encontrar la longitud del palíndromo más largo que se puede construir con esas letras.
+
+Enfoque para resolverlo:
+
+Utilizar una tabla hash para contar caracteres:
+Contar la frecuencia de cada letra.
+Calcular la longitud máxima:
+Sumar pares de letras (frecuencia dividida por 2 multiplicada por 2).
+Si hay al menos una letra con frecuencia impar, se puede colocar en el centro del palíndromo, incrementando la longitud en 1.
+Devolver la longitud calculada.
+Ejercicio 16: Minimum Index Sum of Two Lists
+Objetivo:
+
+Dadas dos listas de cadenas, encontrar las cadenas comunes con el mínimo índice de suma.
+
+Enfoque para resolverlo:
+
+Utilizar una tabla hash para almacenar índices:
+Mapear cada cadena de la primera lista a su índice.
+Iterar sobre la segunda lista:
+Si una cadena está en la tabla, calcular la suma de índices.
+Mantener un seguimiento de la mínima suma de índices y las cadenas correspondientes.
+Devolver las cadenas con la mínima suma de índices.
+Ejercicio 17: Group Shifted Strings
+Objetivo:
+
+Agrupar cadenas que pertenecen al mismo grupo de desplazamiento. Dos cadenas son del mismo grupo si se puede obtener una de otra desplazando cada uno de sus caracteres por la misma cantidad.
+
+Enfoque para resolverlo:
+
+Utilizar una tabla hash para agrupar cadenas:
+Calcular una clave única para cada cadena basada en la diferencia entre caracteres consecutivos.
+Agrupar las cadenas en la tabla hash según su clave.
+Devolver los grupos de cadenas.
+Ejercicio 18: Valid Sudoku
+Objetivo:
+
+Determinar si una tabla de Sudoku de 9x9 es válida según las reglas del juego.
+
+Enfoque para resolverlo:
+
+Utilizar tablas hash para filas, columnas y subcuadrículas:
+Verificar que no haya números repetidos en cada fila, columna y subcuadrícula de 3x3.
+Utilizar un conjunto para cada fila, columna y subcuadrícula para rastrear los números vistos.
+Iterar sobre cada celda y realizar las comprobaciones necesarias.
+Ejercicio 19: Jewels and Stones
+Objetivo:
+
+Dadas dos cadenas J (joyas) y S (piedras que tienes), contar cuántas piedras que tienes son también joyas.
+
+Enfoque para resolverlo:
+
+Utilizar un conjunto para las joyas:
+Añadir cada carácter de J al conjunto.
+Contar las joyas en S:
+Iterar sobre S y aumentar un contador si el carácter está en el conjunto de joyas.
+Devolver el contador total.
+Ejercicio 20: Number of Boomerangs
+Objetivo:
+
+Dado un conjunto de puntos en un plano, contar el número de boomerangs. Un boomerang es una tupla de puntos (i, j, k) tal que la distancia entre i y j es igual a la distancia entre i y k, con i, j, k distintos.
+
+Enfoque para resolverlo:
+
+Utilizar una tabla hash para almacenar distancias:
+Para cada punto i, calcular la distancia a todos los demás puntos j.
+Almacenar la frecuencia de cada distancia.
+Calcular combinaciones:
+Para cada distancia con más de un punto, calcular el número de permutaciones posibles.
+Sumar al contador total.
+Devolver el número total de boomerangs.
