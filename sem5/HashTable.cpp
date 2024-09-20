@@ -1,3 +1,11 @@
+
+// Integrantes: Gino Daza Yalta, Milton Cordova Navarro, Nicolas Stigler Yañez
+
+// Se busco cumplir con los metodos en la pizzara
+// Insert, Search, Delete, Resize, Empty.
+
+// GPT fue usado para comentar y testear lo basico
+
 #include <cstddef>
 #include <iostream>
 #include <vector>
@@ -36,6 +44,7 @@ private:
             }
         }
 
+        // si no se pone con std no funciona (desconozco porque)
         table = std::move(newTable);  // Replace the old table with the new one
         size = newSize;               // Update the size
     }
