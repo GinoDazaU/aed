@@ -231,7 +231,6 @@ private:
 // 324. Convert Sorted Array to Binary Search Tree:
 
 // Construye un BST balanceado a partir de un array ordenado.
-class Solution {
 public:
     Node* sortedArrayToBST(vector<int>& nums) {
         return buildBST(nums, 0, nums.size() - 1);
@@ -253,8 +252,6 @@ public:
 // 235. Lowest Common Ancestor of a Binary Search Tree:
 
 // Encuentra el ancestro común más bajo de dos nodos.
-class Solution {
-public:
     Node* lowestCommonAncestor(Node* root, Node* p, Node* q) {
         if (root->data > p->data && root->data > q->data)
             return lowestCommonAncestor(root->left, p, q);
@@ -270,8 +267,6 @@ public:
 98. Validate Binary Search Tree:
 
 // Verifica si el árbol es un BST válido.
-class Solution {
-public:
     bool isValidBST(Node* root) {
         return validate(root, nullptr, nullptr);
     }
@@ -291,8 +286,6 @@ public:
 700. Search in a Binary Search Tree:
 
 // Busca un valor en el BST.
-class Solution {
-public:
     Node* searchBST(Node* root, int val) {
         if (!root || root->data == val) return root;
         return val < root->data ? searchBST(root->left, val) : searchBST(root->right, val);
@@ -305,8 +298,7 @@ public:
 701. Insert into a Binary Search Tree:
 
 // Inserta un valor en el BST.
-class Solution {
-public:
+
     Node* insertIntoBST(Node* root, int val) {
         if (!root) return new Node(val);
         if (val < root->data) root->left = insertIntoBST(root->left, val);
@@ -321,8 +313,7 @@ public:
 450. Delete Node in a BST:
 
 // Elimina un nodo en el BST.
-class Solution {
-public:
+
     Node* deleteNode(Node* root, int key) {
         if (!root) return root;
         if (key < root->data) root->left = deleteNode(root->left, key);
@@ -348,8 +339,7 @@ public:
 108. Convert Sorted Array to BST:
 
 // Convierte un array ordenado en un BST balanceado.
-class Solution {
-public:
+
     Node* sortedArrayToBST(vector<int>& nums) {
         return helper(nums, 0, nums.size() - 1);
     }
@@ -370,8 +360,7 @@ public:
 653. Two Sum IV - Input is a BST:
 
 // Encuentra si hay dos números que sumen un valor en el BST.
-class Solution {
-public:
+
     bool findTarget(Node* root, int k) {
         unordered_set<int> set;
         return dfs(root, k, set);
@@ -391,8 +380,7 @@ public:
 230. Kth Smallest Element in a BST:
 
 // Encuentra el k-ésimo elemento más pequeño en un BST.
-class Solution {
-public:
+
     int kthSmallest(Node* root, int k) {
         stack<Node*> st;
         while (root || !st.empty()) {
@@ -415,8 +403,7 @@ public:
 538. Convert BST to Greater Tree:
 
 // Convierte el BST para que cada nodo contenga la suma de todos los valores mayores o iguales a él.
-class Solution {
-public:
+
     Node* convertBST(Node* root) {
         int sum = 0;
         traverse(root, sum);
@@ -438,8 +425,7 @@ public:
 110. Balanced Binary Tree:
 
 // Determina si un árbol es balanceado.
-class Solution {
-public:
+
     bool isBalanced(Node* root) {
         return height(root) != -1;
     }
@@ -459,8 +445,7 @@ public:
 1038. Binary Search Tree to Greater Sum Tree:
 
 // Convierte un BST en un árbol donde cada nodo contiene la suma de todos los nodos mayores.
-class Solution {
-public:
+
     Node* bstToGst(Node* root) {
         int sum = 0;
         dfs(root, sum);
@@ -482,8 +467,7 @@ public:
 222. Count Complete Tree Nodes:
 
 // Cuenta el número de nodos en un árbol binario completo.
-class Solution {
-public:
+
     int countNodes(Node* root) {
         if (!root) return 0;
         return 1 + countNodes(root->left) + countNodes(root->right);
@@ -496,8 +480,7 @@ public:
 144. Binary Tree Preorder Traversal:
 
 // Realiza un recorrido preorden de un árbol binario.
-class Solution {
-public:
+
     vector<int> preorderTraversal(Node* root) {
         vector<int> res;
         stack<Node*> st;
@@ -519,8 +502,7 @@ public:
 145. Binary Tree Postorder Traversal:
 
 // Realiza un recorrido postorden de un árbol binario.
-class Solution {
-public:
+
     vector<int> postorderTraversal(Node* root) {
         vector<int> res;
         stack<Node*> st;
@@ -549,8 +531,7 @@ public:
 94. Binary Tree Inorder Traversal:
 
 // Realiza un recorrido inorden de un árbol binario.
-class Solution {
-public:
+
     vector<int> inorderTraversal(Node* root) {
         vector<int> res;
         stack<Node*> st;
@@ -575,9 +556,7 @@ public:
 
 // Encuentra el valor más grande en cada fila de
 
- un árbol.
-class Solution {
-public:
+
     vector<int> largestValues(Node* root) {
         vector<int> res;
         if (!root) return res;
@@ -604,8 +583,7 @@ public:
 105. Construct Binary Tree from Preorder and Inorder Traversal:
 
 // Reconstruye un árbol binario a partir de sus recorridos preorden e inorden.
-class Solution {
-public:
+
     Node* buildTree(vector<int>& preorder, vector<int>& inorder) {
         int preIndex = 0;
         return build(preorder, inorder, preIndex, 0, inorder.size() - 1);
@@ -627,8 +605,7 @@ public:
 106. Construct Binary Tree from Inorder and Postorder Traversal:
 
 // Reconstruye un árbol binario a partir de sus recorridos inorden y postorden.
-class Solution {
-public:
+
     Node* buildTree(vector<int>& inorder, vector<int>& postorder) {
         int postIndex = postorder.size() - 1;
         return build(inorder, postorder, postIndex, 0, inorder.size() - 1);
