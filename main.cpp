@@ -3,18 +3,11 @@
 
 using namespace std;
 
+int factorial(int n) {
+    if(n == 1) return 1;
+    return n * factorial(n - 1);
+}
+
 int main(){
-
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            cout << j << " "; 
-        } 
-        cout << endl;
-    }
-
-   for (int i = 0; i < 10; i++){
-        /* code */
-    }
-    
-    
+    cout << factorial(5) << endl;
 }
