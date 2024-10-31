@@ -1,6 +1,5 @@
 // Gino Daza, Milton Cordova, Nicolas Stigler
 
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -20,7 +19,7 @@ public:
 class BPlusTree {
 private:
     Node* root;
-    int degree; // Grado del arbol
+    int degree; // Grado mínimo
 
 public:
     BPlusTree(int degree) : degree(degree), root(nullptr) {}
@@ -335,12 +334,13 @@ int main() {
 
     // Eliminación de una clave
     claveBuscar = 6;
+    cout << "Borrando clave 6..." << endl;
     arbol.remove(6);
     resultado = arbol.search(claveBuscar);
     if (resultado) {
-        cout << "Clave " << claveBuscar << " aun se encuentra en el arbol despues de eliminarla." << endl; // no deberia pasar
-    } else {    // si ya no esta despues de eliminarla
-        cout << "Clave " << claveBuscar << " eliminada correctamente del arbol." << endl;
+        cout << "Clave " << claveBuscar << " encontrada en el arbol." << endl;
+    } else {
+        cout << "Clave " << claveBuscar << " no encontrada en el arbol." << endl;
     }
 
     return 0;
