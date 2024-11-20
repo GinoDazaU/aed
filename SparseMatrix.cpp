@@ -103,6 +103,17 @@ public:
         }
         return result;
     }
+
+    void display(){
+        for (int i = 0; i < n_rows; ++i) {
+            for (int j = 0; j < n_cols; ++j) {
+                cout << this->get(i,j) << " ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+    }
+
 };
 
 int main() {
