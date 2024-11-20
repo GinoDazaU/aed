@@ -129,20 +129,41 @@ public:
 
 int main() {
 
-    // problema 1
+    // problema 2
+
+    // Matriz 1
+
+    int n1 = 9;
+    int m1 = 7;
+
+    vector<int> row1 = {2, 5, 5, 7, 8, 8, 9};
+    vector<int> column1 = {3, 1, 4, 4, 1, 6, 3};
+    vector<int> value1 = {3, 3, 1, 5, 1, 4, 2};
+
+    SparseMatrix<int> mat1(9, 7);
+
+    mat1.coords_to_list(row1,column1, value1);
+
+    mat1.display();
+
+    // Matriz 2
+
+    int n2 = 9;
+    int m2 = 7;
+
+    vector<int> row2 = {2, 5, 5, 7, 8, 8, 9};
+    vector<int> column2 = {3, 1, 4, 4, 1, 6, 3};
+    vector<int> value2 = {4, 2, 1, 4, 3, 2, 1};
+
+    SparseMatrix<int> mat2(9, 7);
+
+    mat2.coords_to_list(row2, column2, value2);
+
+    mat2.display();
     
-    int n = 9;
-    int m = 9;
-
-    vector<int> row = {2, 2, 2, 3, 4, 4, 6, 7, 7, 9};
-    vector<int> column = {1, 2, 7, 7, 5, 9, 5, 2, 8, 9};
-    vector<int> value = {3, 5, 9, 5, 5, 22, 5, 5, 5, 5};
-
-    SparseMatrix<int> mat(n, m);
-
-    mat.coords_to_list(row, column, value);
-
-    mat.display();
+    // Matriz 1 + Matriz 2
+    
+    
 
     return 0;
 }
