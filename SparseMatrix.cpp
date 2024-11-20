@@ -107,6 +107,22 @@ public:
         return result;
     }
 
+    // Suma de matrices
+    SparseMatrix<T> operator+(const SparseMatrix<T>& other) const {
+        if (n_rows != other.n_rows || n_cols != other.n_cols)
+            throw invalid_argument("Matrix dimensions must match");
+
+        SparseMatrix<T> result(n_rows, n_cols);
+
+        for (int i = 0; i < n_rows; ++i) {
+            for (int j = 0; j < n_cols; ++j) {
+                result.insert(i, j,this->get(i, j) + other.get(i,j));
+            }
+        }
+
+        return result;
+    }
+
     void display(){
         for (int i = 0; i < n_rows; ++i) {
             for (int j = 0; j < n_cols; ++j) {
@@ -140,7 +156,7 @@ int main() {
     vector<int> column1 = {3, 1, 4, 4, 1, 6, 3};
     vector<int> value1 = {3, 3, 1, 5, 1, 4, 2};
 
-    SparseMatrix<int> mat1(9, 7);
+    SparseMatrix<int> mat1(n1, m1);
 
     mat1.coords_to_list(row1,column1, value1);
 
@@ -155,15 +171,18 @@ int main() {
     vector<int> column2 = {3, 1, 4, 4, 1, 6, 3};
     vector<int> value2 = {4, 2, 1, 4, 3, 2, 1};
 
-    SparseMatrix<int> mat2(9, 7);
+    SparseMatrix<int> mat2(n2, m2);
 
     mat2.coords_to_list(row2, column2, value2);
 
     mat2.display();
-    
+
     // Matriz 1 + Matriz 2
-    
-    
+
+    SparseMatrix<int> mat3(n2, m2);
+    mat3 = mat1 + mat2;
+
+    mat3.display();
 
     return 0;
 }
