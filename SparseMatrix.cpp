@@ -124,28 +124,20 @@ public:
 };
 
 int main() {
-    SparseMatrix<int> mat(5, 5);
+    
+    // problema 1:
+    int n = 10;
+    int m = 10;
 
-    // Insertar elementos en la matriz
-    mat.insert(0, 0, 5);
-    mat.insert(1, 2, 8);
-    mat.insert(3, 4, 10);
+    vector<int> row = {2, 2, 2, 3, 4, 4, 6, 7, 7, 9};
+    vector<int> column = {1, 2, 7, 7, 5, 9, 5, 2, 8, 9};
+    vector<int> value = {3, 5, 9, 5, 5, 22, 5, 5, 5, 5};
 
-    // Caso de prueba: Obtener elementos
-    cout << "Elemento en (0,0): " << mat(0, 0) << endl;
-    cout << "Elemento en (1,2): " << mat(1, 2) << endl;
-    cout << "Elemento en (3,4): " << mat(3, 4) << endl;
-    cout << "Elemento en (2,2): " << mat(2, 2) << " (esperado 0, ya que no está definido)" << endl;
+    SparseMatrix<int> mat(n, m);
 
-    // Transponer la matriz
-    auto transpuesta = mat.transpose();
-    cout << "Transpuesta - Elemento en (0,0): " << transpuesta(0, 0) << endl;
-    cout << "Transpuesta - Elemento en (2,1): " << transpuesta(2, 1) << endl;
-    cout << "Transpuesta - Elemento en (4,3): " << transpuesta(4, 3) << endl;
+    mat.coords_to_list(row, column, value);
 
-    // Matriz vacía
-    SparseMatrix<int> empty_mat(5, 5);
-    cout << "Elemento en matriz vacía (0,0): " << empty_mat(0, 0) << " (esperado 0)" << endl;
+    mat.display();
 
     return 0;
 }
