@@ -114,6 +114,13 @@ public:
         cout << endl;
     }
 
+    void coords_to_list(vector<int> coords_row, vector<int> coords_column, vector<T> cords_value){
+        int n = coords_row.size();
+        for (int i = 0; i < n; ++i) {
+            this->insert(coords_row[i], coords_column[i], cords_value[i]);
+        }
+    }
+
 };
 
 int main() {
