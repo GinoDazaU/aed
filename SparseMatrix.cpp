@@ -1,3 +1,6 @@
+
+// Gino Daza, Nicolas Stigler, Milton Cordova
+
 #include <iostream>
 #include <vector>
 
@@ -117,17 +120,19 @@ public:
     void coords_to_list(vector<int> coords_row, vector<int> coords_column, vector<T> cords_value){
         int n = coords_row.size();
         for (int i = 0; i < n; ++i) {
-            this->insert(coords_row[i], coords_column[i], cords_value[i]);
+            this->insert(coords_row[i] - 1, coords_column[i] - 1, cords_value[i]);
         }
     }
 
 };
 
+
 int main() {
+
+    // problema 1
     
-    // problema 1:
-    int n = 10;
-    int m = 10;
+    int n = 9;
+    int m = 9;
 
     vector<int> row = {2, 2, 2, 3, 4, 4, 6, 7, 7, 9};
     vector<int> column = {1, 2, 7, 7, 5, 9, 5, 2, 8, 9};
