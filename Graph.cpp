@@ -19,13 +19,11 @@ public:
         adjList[v].push_back(u); // Si es no dirigido
     }
 
-    // DFS recursivo
-    void dfsUtil(int node, vector<bool>& visited) {
+    void dfsUtil(int node, vector<bool>& visited){
         visited[node] = true;
         cout << node << " ";
-
-        for (int neighbor : adjList[node]) {
-            if (!visited[neighbor]) {
+        for(int neighbor: adjList[node]){
+            if(!visited[neighbor]){
                 dfsUtil(neighbor, visited);
             }
         }
