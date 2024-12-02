@@ -1,3 +1,6 @@
+// Si se ve que recien lo cree es porque lo habia borrado, olvide que estaba en una tarea
+// el codigo es el mismo que el del documento
+
 // Gino Daza, Milton Cordova, Nicolas Stigler
 
 #include <iostream>
